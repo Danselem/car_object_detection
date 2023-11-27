@@ -1,6 +1,6 @@
 {
     "job": {
-        "command": "qsub object_detection_job.sh -l nodes=1:NODE -F \" RESULTS TARGET  FP_MODEL /data/reference-sample-data/object-detection-python/cars_1900.mp4  N_REQ\" -v VENV_PATH,OPENVINO_RUNTIME",
+        "command": "qsub object_detection_job.sh -l nodes=1:NODE -F \" RESULTS TARGET  FP_MODEL ./cars_1900.mp4  N_REQ\" -v VENV_PATH,OPENVINO_RUNTIME",
         "output_type": ".webm",
         "results_path": "results/",
         "results_defines": "RESULTS",
