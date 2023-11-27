@@ -1,0 +1,61 @@
+
+########################################################################
+#      Date:           Mon Nov 27 12:17:52 PM PST 2023
+#    Job ID:           964429.v-qsvr-1.devcloud-edge
+#      User:           u191360
+# Resources:           neednodes=1:idc075,nodes=1:idc075,walltime=01:00:00
+########################################################################
+
+VENV_PATH=/data/venv/openvino_2023.1.0_python3.10_TF2.8.0_v1/.venv
+INPUT_FILE=./cars_1900.mp4
+FP_MODEL=FP16
+INPUT_TILE=./cars_1900.mp4
+NUM_REQS=4
+Activating a Python virtual environment from /data/venv/openvino_2023.1.0_python3.10_TF2.8.0_v1/.venv...
+[ INFO ] Successfully Compiled model (models/mobilenet-ssd/FP16/mobilenet-ssd.xml) for (GPU) device
+[ INFO ] Model Input Info - batch size:1 channels:3 height:300 width:300
+[ INFO ] Preprocessing 3000 frames and saving to file.
+Create progress tracker
+[ INFO ] Completed Preprocessing.
+[ INFO ] Preprocess info - chunk_size:270000 video_width:1920 video_height:1080 video_len:3000
+[ INFO ] Completed reading labels file: ./labels.txt
+[ INFO ] Starting Async Inference requests
+[ INFO ] Completed all async requests
+in send app metrics writer
+GPU
+input_data=results/964429/output.txt
+progress_data=results/964429/post_progress.txt
+output_stream=results/964429/output_964429.webm
+args.scale_frame_rate=1.0
+args.scale_resolution=0.5
+Create progress tracker
+Post processing time: 60.73173522949219 sec
+
+########################################################################
+# End of output for job 964429.v-qsvr-1.devcloud-edge
+# Date: Mon Nov 27 12:19:48 PM PST 2023
+########################################################################
+
+Unrecognized intel_gpu_top format:
+h1_len=11-h2_len=21
+['Freq', 'MHz', 'IRQ', 'RC6', 'Power', 'W', 'RCS/0', 'BCS/0', 'VCS/0', 'VCS/1', 'VECS/0']
+['req', 'act', '/s', '%', 'gpu', 'pkg', '%', 'se', 'wa', '%', 'se', 'wa', '%', 'se', 'wa', '%', 'se', 'wa', '%', 'se', 'wa']
+sys.argv[1]=[/etc/collectd/telemetrySender.py]
+sys.argv[1]=[u191360]
+sys.argv[2]=[964429.v-qsvr-1.devcloud-edge]
+sys.argv[3]=[127]
+sys.argv[4]=[1701116272]
+sys.argv[5]=[1701116399]
+sys.argv[6]=[idc075_compnode_openvino-latest_intel-core_i7-11700b_intel-uhd-11th-gen_ram32gb]
+USER_ID=[u191360]
+JOB_ID=[964429]
+JOB_RUNTIME=[127]
+FROM_TIME=[1701116272]
+TO_TIME=[1701116399]
+HOST_TYPE=[idc075_compnode_openvino-latest_intel-core_i7-11700b_intel-uhd-11th-gen_ram32gb]
+EDGE_NAME=[s075-n001]
+PBS_O_WORKDIR=[/home/u191360/car_object_detection]
+APPLICATION_NAME=[car_object_detection]
+INTEL_SKU=[core-i7]
+existing sample
+InfluxDBClient.write_points(sub_metric_list) result_success:[None, len(sub_metric_list)=263]

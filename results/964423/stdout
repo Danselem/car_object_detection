@@ -1,0 +1,50 @@
+
+########################################################################
+#      Date:           Mon Nov 27 11:32:35 AM PST 2023
+#    Job ID:           964423.v-qsvr-1.devcloud-edge
+#      User:           u191360
+# Resources:           neednodes=1:idc022,nodes=1:idc022,walltime=01:00:00
+########################################################################
+
+VENV_PATH=/data/venv/openvino_2023.1.0_python3.10_TF2.8.0_v1/.venv
+INPUT_FILE=./cars_1900.mp4
+FP_MODEL=FP16
+INPUT_TILE=./cars_1900.mp4
+NUM_REQS=4
+Activating a Python virtual environment from /data/venv/openvino_2023.1.0_python3.10_TF2.8.0_v1/.venv...
+[ INFO ] Successfully Compiled model (models/mobilenet-ssd/FP16/mobilenet-ssd.xml) for (CPU) device
+[ INFO ] Model Input Info - batch size:1 channels:3 height:300 width:300
+[ INFO ] Preprocessing 3000 frames and saving to file.
+Create progress tracker
+[ INFO ] Completed Preprocessing.
+[ INFO ] Preprocess info - chunk_size:270000 video_width:1920 video_height:1080 video_len:3000
+[ INFO ] Completed reading labels file: ./labels.txt
+[ INFO ] Starting Async Inference requests
+[ INFO ] Completed all async requests
+in send app metrics writer
+CPU
+
+########################################################################
+# End of output for job 964423.v-qsvr-1.devcloud-edge
+# Date: Mon Nov 27 11:33:28 AM PST 2023
+########################################################################
+
+sys.argv[1]=[/etc/collectd/telemetrySender.py]
+sys.argv[1]=[u191360]
+sys.argv[2]=[964423.v-qsvr-1.devcloud-edge]
+sys.argv[3]=[64]
+sys.argv[4]=[1701113555]
+sys.argv[5]=[1701113619]
+sys.argv[6]=[idc022_compnode_openvino-latest_intel-core_i7-10710u_intel-uhd-620_ram16gb]
+USER_ID=[u191360]
+JOB_ID=[964423]
+JOB_RUNTIME=[64]
+FROM_TIME=[1701113555]
+TO_TIME=[1701113619]
+HOST_TYPE=[idc022_compnode_openvino-latest_intel-core_i7-10710u_intel-uhd-620_ram16gb]
+EDGE_NAME=[s022-n001]
+PBS_O_WORKDIR=[/home/u191360/car_object_detection]
+APPLICATION_NAME=[car_object_detection]
+INTEL_SKU=[core-i7]
+existing sample
+InfluxDBClient.write_points(sub_metric_list) result_success:[None, len(sub_metric_list)=172]
