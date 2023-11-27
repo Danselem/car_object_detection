@@ -1,0 +1,285 @@
+{
+    "job": {
+        "command": "qsub object_detection_job.sh -l nodes=1:NODE -F \" RESULTS TARGET  FP_MODEL /data/reference-sample-data/object-detection-python/cars_1900.mp4  N_REQ\" -v VENV_PATH,OPENVINO_RUNTIME",
+        "output_type": ".webm",
+        "results_path": "results/",
+        "results_defines": "RESULTS",
+        "control_widgets": [
+            "telemetry"
+        ],
+        "progress_indicators": [
+            {
+                "file_name": "pre_progress.txt",
+                "title": "Pre Infer Progress"
+            },
+            {
+                "file_name": "i_progress.txt",
+                "title": "Inference Progress"
+            },
+            {
+                "file_name": "post_progress.txt",
+                "title": "Post Infer Progress"
+            }
+        ],
+        "plots": [
+            {
+                "title": "Inference Time",
+                "type": "time",
+                "ylabel": "Time in seconds",
+                "xlabel": "Architectures",
+                "selector": [
+                    "Target architecture"
+                ]
+            },
+            {
+                "title": "Frames per second",
+                "type": "fps",
+                "ylabel": "Number of frames per second",
+                "xlabel": "Architectures",
+                "selector": [
+                    "Target architecture"
+                ]
+            }
+        ]
+    },
+   "inputs":[
+      {
+         "Target_node":{
+            "display_name":"Target node",
+            "type":"select",
+            "default":" ",
+            "defines":[
+               "NODE"
+            ],
+            "options":[
+               {
+                  "name":"Select Node",
+                  "dummy":"True",
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i7-10710U",
+                        "Intel® UHD Graphics",
+                        "Intel® Xeon® E-2286M",
+                        "Intel® UHD Graphics P630",
+                        "Intel® Core™ i7-1185G7E",
+                        "Intel® Iris XE graphics",
+                        "Intel® Xeon® Gold 6338N",
+                        "Intel® Core™ i5-12500TE",
+                        "Intel® UHD Graphics 770",
+                        "Intel® Core™ i7-11700b",
+                        "Intel® UHD 11th Gen",
+                        "Intel® Core™ i5-1250PE",
+                        "Intel® Iris XE graphics"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-022/\nIntel® Core™ i7-10710U (Comet Lake)",
+                  "defines":{
+                     "NODE":"idc022"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i7-10710U CPU",
+                        "Intel® UHD Graphics GPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-033/\nIntel® Xeon® E-2286M (Coffee Lake)",
+                  "defines":{
+                     "NODE":"idc033"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Xeon® E-2286M CPU",
+                        "Intel® UHD Graphics P630 GPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-045/\nIntel® Core™ i7-1185G7E (Tiger Lake)",
+                  "defines":{
+                     "NODE":"idc045"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i7-1185G7E CPU",
+                        "Intel® Iris XE graphics GPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-052/\nIntel® Xeon® Gold 6338N (Ice Lake)",
+                  "defines":{
+                     "NODE":"idc052"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Xeon® Gold 6338N CPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-073/\nIntel® Core™ i5-12500TE (Alder Lake)",
+                  "defines":{
+                     "NODE":"idc073"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i5-12500TE CPU",
+                        "Intel® UHD Graphics 770 GPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-075/\nIntel® Core™ i7-11700b (Tiger Lake)",
+                  "defines":{
+                     "NODE":"idc075"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i7-11700b CPU",
+                        "Intel® UHD 11th Gen GPU"
+                     ]
+                  }
+               },
+               {
+                  "name":"IDC-085/\nIntel® Core™ i5-1250PE (Alder Lake)",
+                  "defines":{
+                     "NODE":"idc085"
+                  },
+                  "controls":{
+                     "Target_arch":[
+                        "Intel® Core™ i5-1250PE CPU",
+                        "Intel® Iris XE graphics GPU"
+                     ]
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "Target_arch":{
+            "display_name":"Target architecture",
+            "type":"select",
+            "default":" ",
+            "defines":[
+               "TARGET",
+               "FP_MODEL",
+               "N_REQ"
+            ],
+            "options":[
+               {
+                  "name":"Select Architecture",
+                  "dummy":"True"
+               },
+               {
+                  "name":"Intel® Core™ i7-10710U CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® UHD Graphics GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Xeon® E-2286M CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® UHD Graphics P630 GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"6"
+                  }
+               },
+               {
+                  "name":"Intel® Core™ i7-1185G7E CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Iris XE graphics GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Xeon® Gold 6338N CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Core™ i5-12500TE CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® UHD Graphics 770 GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Core™ i7-11700b CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® UHD 11th Gen GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Core™ i5-1250PE CPU",
+                  "defines":{
+                     "TARGET":"CPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               },
+               {
+                  "name":"Intel® Iris XE graphics GPU",
+                  "defines":{
+                     "TARGET":"GPU",
+                     "FP_MODEL":"FP16",
+                     "N_REQ":"4"
+                  }
+               }
+            ]
+         }
+      }
+   ]
+}
